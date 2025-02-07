@@ -18,9 +18,10 @@ fileRouter.post("/upload", authenticateJWT, function (req, res, next) {
         } else if(err) {
             return res.status(500).json({ error: { description: err.message } });
         }
+
+        next();
     });
 
-    next();
 },
 isFilePresent,
 imageResize,
